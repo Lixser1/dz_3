@@ -14,14 +14,67 @@ buttonGmail.onclick = () => {
 }
 //перемешение одного блока внутри его родителя
 let child = document.querySelector(".child_block");
-let num = 0
-const counter = () => {
-    num++
-    child.style.left=`${num}px`
-    if (num < 448){
-        requestAnimationFrame(counter)
+let parent = document.querySelector(".parent_block");
+let positionX = 0
+let positionY = 0
+const offsetWidth = parent.offsetWidth - child.offsetWidth
+const offsetHeight = parent.offsetHeight - child.offsetHeight
+const moveBlock = () => {
+    if (positionX < offsetWidth && positionY === 0) {
+        positionX++
+        child.style.left = `${positionX}px`
+        requestAnimationFrame(moveBlock)
+    } else if (positionX >= offsetWidth && positionY < offsetHeight) {
+        positionY++
+        child.style.top = `${positionY}px`
+        requestAnimationFrame(moveBlock)
+    } else if (positionX !== 0 && positionY >= offsetHeight) {
+        positionX--
+        child.style.left = `${positionX}px`
+        requestAnimationFrame(moveBlock)
+    } else if (positionX === 0 && positionY !== 0) {
+        positionY--
+        child.style.top = `${positionY}px`
+        requestAnimationFrame(moveBlock)
     }
-    // counter()
 }
-counter()
+
+moveBlock()
+
+// таймер
+let time = 0
+let interval;
+let seconds = document.querySelector("#seconds")
+let startButton = document.querySelector("#start")
+let stopButton = document.querySelector("#stop")
+let resetButton = document.querySelector("#reset")
+
+startButton.onclick = () => {
+    if (!interval) {
+        interval = setInterval(() => {
+            time++
+            seconds.textContent = time
+        }, 1000)
+    }
+}
+stopButton.onclick = () => {
+    clearInterval(interval)
+    interval = null
+}
+
+resetButton.onclick = () => {
+    time = 0
+    clearInterval(interval)
+    seconds.textContent = time
+    interval = null
+}
+// let int = setInterval(() => {
+//     console.log("1")
+// }, 1000)
+// clearInterval(int)
+
+
+
+
+
 

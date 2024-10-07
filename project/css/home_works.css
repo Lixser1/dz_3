@@ -47,6 +47,7 @@
     border: 1px solid var(--orange);
     position: relative;
     margin: 0 auto;
+    box-sizing: content-box;
 }
 
 .child_block {
