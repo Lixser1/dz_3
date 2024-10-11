@@ -67,11 +67,8 @@ resetButton.onclick = () => {
     clearInterval(interval)
     seconds.textContent = time
     interval = null
-}
-// let int = setInterval(() => {
-//     console.log("1")
-// }, 1000)
-// clearInterval(int)
+};
+
 
 
 
