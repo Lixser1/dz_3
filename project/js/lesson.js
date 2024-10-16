@@ -33,25 +33,27 @@ const showTabContent = (index = 0) => {
 }
 hideTabContent()
 showTabContent()
+let tabindex = 0
 tabParent.onclick = (event) => {
     if (event.target.classList.contains('tab_content_item')) {
         tabItems.forEach((item, index) => {
             if (event.target === item) {
                 hideTabContent()
                 showTabContent(index)
+                tabindex = index
             }
         })
     }
 }
-let index = 0
+
 setInterval(()=> {
-    if (index < 4) {
-        index++
+    if (tabindex < 4) {
+        tabindex++
     }else {
-        index = 0
+        tabindex = 0
     }
     hideTabContent()
-    showTabContent(index)
+    showTabContent(tabindex)
 }, 5000)
 
 

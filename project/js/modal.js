@@ -18,12 +18,14 @@ modal.onclick = (event) => {
         closeModal()
     }
 }
-let timeout
+
+//timeout modal
+/*let timeout
 const openModal10Second =() => {
     clearTimeout(timeout)
     timeout = setTimeout(()=> {
     openModals()
-}, 5000)}
+}, 120000)}
 window.onload = openModal10Second;
 document.onmousemove = openModal10Second;
 document.onscroll = openModal10Second;
@@ -39,7 +41,4 @@ const userReachedBottom = () => {
     openModals()
 };
 
-window.addEventListener('scroll', checkScrollBottom);
-
-
-
+window.addEventListener('scroll', checkScrollBottom);*/

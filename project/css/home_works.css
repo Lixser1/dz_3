@@ -1,4 +1,3 @@
-
 /* GMAIL BLOCK */
 
 .gmail_block {
@@ -88,24 +87,26 @@
     font-style: normal;
     transform: rotate(var(--rotate)) translateX(var(--dail-size));
 }
+
 .spike:nth-child(5n+1) {
     box-shadow: -7px 0 #fff9;
 }
+
 .spike:nth-child(5n+1):after {
     content: attr(data-i);
     position: absolute;
     right: 22px;
     top: -10px;
     transition: 1s linear;
-    transform: rotate(calc( var(--dRotate) - var(--rotate)));
+    transform: rotate(calc(var(--dRotate) - var(--rotate)));
 }
 
 .seconds {
     --dRotate: 0deg;
-    --dail-size: calc((var(--clock-size)/ 2) - 8px);
+    --dail-size: calc((var(--clock-size) / 2) - 8px);
     font-weight: 800;
     font-size: 18px;
-    transform: rotate(calc( -1 * var(--dRotate)));
+    transform: rotate(calc(-1 * var(--dRotate)));
     position: absolute;
     inset: 0;
     margin: auto;
@@ -113,9 +114,9 @@
 }
 
 .minutes {
-    --dail-size: calc((var(--clock-size)/ 2) - 65px);
+    --dail-size: calc((var(--clock-size) / 2) - 65px);
     font-size: 16px;
-    transform: rotate(calc( -1 * var(--dRotate)));
+    transform: rotate(calc(-1 * var(--dRotate)));
     position: absolute;
     inset: 0;
     margin: auto;
@@ -125,6 +126,7 @@
 .stop-anim {
     transition: 0s linear;
 }
+
 .stop-anim .spike:after {
     transition: 0s linear !important;
 }
@@ -144,10 +146,11 @@
     position: absolute;
     background: #000;
     z-index: 10;
-    right: calc(var(--clock-size)/ 4.5);
+    right: calc(var(--clock-size) / 4.5);
     top: 50%;
     transform: translateY(-50%);
 }
+
 .minute:after {
     content: "";
     position: absolute;
@@ -157,7 +160,7 @@
     left: -10px;
     top: 50%;
     border-radius: 40px 0 0 40px;
-    width: calc(var(--clock-size)/ 2.75);
+    width: calc(var(--clock-size) / 2.75);
     transform: translatey(-50%);
 }
 
@@ -228,4 +231,22 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/*cards*/
+.character {
+    border: 1px solid white;
+    width: 250px;
+    height: 340px;
+}
+
+.characters-list {
+    color: #1ae907;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.character img {
+    width: 150px;
 }

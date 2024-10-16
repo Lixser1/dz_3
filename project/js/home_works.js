@@ -70,6 +70,43 @@ resetButton.onclick = () => {
 };
 
 
+// console any data
+const request = new XMLHttpRequest()
+request.open("GET", "../data/any.json")
+request.setRequestHeader("Console-data", "application/json")
+request.send()
+request.onload = () => {
+    const data = JSON.parse(request.response)
+    console.log(data)
+}
+
+//card characters
+const persons = new XMLHttpRequest()
+persons.open("GET", "../data/persons.json")
+persons.setRequestHeader("Persons", "application/json")
+persons.send()
+
+const $card = document.querySelector(".characters-list")
+
+persons.onload = () => {
+    const  personsArray =JSON.parse(persons.response)
+    personsArray.forEach((person) => {
+        const character = document.createElement('div');
+        character.innerHTML = `
+        <img src="${person.url}" alt="">
+        <h4>${person.name}</h4>
+        <span>${person.type}</span>
+        `
+        character.setAttribute("class", "character")
+        $card.appendChild(character);
+    })
+}
+
+
+
+
+
+
 
 
 

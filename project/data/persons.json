@@ -1,0 +1,22 @@
+[
+  {
+    "url": "../images/Nurdin.jpg",
+    "name": "Nurdin",
+    "type": "teacher"
+  },
+  {
+    "url": "../images/IAm.jpg",
+    "name": "Nikita",
+    "type": "student"
+  },
+  {
+    "url": "../images/Iman.jpg",
+    "name": "Iman",
+    "type": "student"
+  },
+  {
+    "url": "/images/Saadi.jpg",
+    "name": "Saadi",
+    "type": "student"
+  }
+]
