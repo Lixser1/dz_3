@@ -46,15 +46,53 @@ tabParent.onclick = (event) => {
     }
 }
 
-setInterval(()=> {
+setInterval(() => {
     if (tabindex < 4) {
         tabindex++
-    }else {
+    } else {
         tabindex = 0
     }
     hideTabContent()
     showTabContent(tabindex)
 }, 5000)
+// Converter
+
+
+const usdInput = document.querySelector("#usd")
+const som = document.querySelector("#som")
+const eur = document.querySelector("#eur")
+
+
+const converter = (element, targetEl, eurElement) => {
+    element.oninput = () => {
+        const request = new XMLHttpRequest()
+        request.open("GET", "../data/converter.json")
+        request.setRequestHeader("Converter", "application/json")
+        request.send()
+        request.onload = () => {
+            const data = JSON.parse(request.response)
+            if (element.id === "som") {
+                targetEl.value = (element.value / data.usd).toFixed(2)
+                eurElement.value = (element.value / data.eur).toFixed(2)
+            }
+            if (element.id === "usd") {
+                targetEl.value = (element.value * data.usd).toFixed(2)
+                eurElement.value = (element.value / data.eurUsd).toFixed(2)
+            }
+            if (element.value === "") {
+                targetEl.value = ""
+                eurElement.value = ""
+            }
+            if (element.id === "eur") {
+                targetEl.value = (element.value * data.eur).toFixed(2)
+                eurElement.value = (element.value * data.eurUsd).toFixed(2)
+            }
+        }
+    }
+}
+converter(usdInput, som, eur)
+converter(som, usdInput, eur)
+converter(eur, som, usdInput)
 
 
 
